@@ -1,6 +1,10 @@
 #include "header.h"
 
 // global variables to count number of k and A[k] comparisons in each algorithm
+// counter per vector k
+extern int recursCounter;
+extern int iterCounter;
+// total counter
 extern int recursComps;
 extern int iterComps;
 
