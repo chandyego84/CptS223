@@ -1,5 +1,9 @@
 #include "header.h"
 
+// global variables to count number of k and A[k] comparisons in each algorithm
+extern int recursComps;
+extern int iterComps;
+
 /*
  * Function: indexEqualRecurs
  * Usage: indexEqual(arr, start range, end range);
