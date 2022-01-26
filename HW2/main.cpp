@@ -1,8 +1,11 @@
 #include "indexEqual.h"
 
 int main() {
-    vector<int> A = {0, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    cout << IndexEqualRecurs(A, 0, 10) << endl;
+    vector<int> A;
+    
+
+    cout << "Recursive Index Equal: " << IndexEqualRecurs(A, 0, 99) << endl;
+    cout << "Iterative Index Equal: " << IndexEqualIter(A, 0, 99) << endl;
 
     return 0;
 }
