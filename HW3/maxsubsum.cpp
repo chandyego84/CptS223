@@ -36,26 +36,28 @@ ostream& operator<<(ostream &os, const MaxSubSum &mss) {
 
 // Inserts val into the vector at the given index
 // Shifting the original elements starting at index to the right.
-void MaxSubSum::Insert(int index, int val) {
-        // insert the new value
-        // Update() not called:
-            // New value inserted immediately before current MSS. 
-            // New value inserted immediately after the current MSS. 
+void MaxSubSum::Insert(int index, int val) {    
+    // insert the new value
+    // Update() not called:
+        // New value inserted immediately before current MSS. 
+        // New value inserted immediately after the current MSS. 
+    MSSv.insert(MSSv.begin() + index, val);        
 
+    // New value inserted at least one element before current MSS. 
+    // New value inserted at least one element after current MSS. 
+    if (index < start - 1 || index > end + 1) {
+        // update only called if val > 0
+        if (val > 0) {
+            // update
+        }
+    }
 
-        // New value inserted at least one element before current MSS. 
-        if (index < start - 1) {
-            // update only called if val > 0
+    // New value inserted inside current MSS. Update should be called only if value < 0.
+    else if (index > start && index < end) {
+        // update only called if val < 0
+        if (val < 0) {
+            // update
         }
-
-        // New value inserted at least one element after current MSS. 
-        else if (index > end + 1) {
-            // update only called if val > 0
-        }
-        
-        // New value inserted inside current MSS. Update should be called only if value < 0.
-        else {
-            // update only called if val < 0
-        }
+    }
 
 }
