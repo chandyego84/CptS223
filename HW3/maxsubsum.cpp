@@ -18,7 +18,7 @@ int MaxSubSum::Sum() const {
 
 // Overloads << operator that allows a MaxSubSum instance to be printed using 'cout << mss'.
 ostream& operator<<(ostream &os, const MaxSubSum &mss) {
- if (mss.start == mss.end) {
+ if (mss.MSSv.empty()) {
         // empty sequence
         os << "[]" << endl;
     }
@@ -41,7 +41,14 @@ void MaxSubSum::Insert(int index, int val) {
     // Update() not called:
         // New value inserted immediately before current MSS. 
         // New value inserted immediately after the current MSS. 
-    MSSv.insert(MSSv.begin() + index, val);        
+    if (index > MSSv.size()) {
+        cout << "inserting with index > size" << endl;
+        MSSv.push_back(val);
+    }
+    else {
+        cout << "inserting with index within range" << endl;
+        MSSv.insert(MSSv.begin() + index, val);
+    }
 
     // New value inserted at least one element before current MSS. 
     // New value inserted at least one element after current MSS. 
@@ -63,7 +70,7 @@ void MaxSubSum::Insert(int index, int val) {
 }
 
 // Recomputes the MSS for the entire vector.
-int MaxSubSum::Update() {
+void MaxSubSum::Update() {
     int maxSum = 0, sum = 0;
 
     for (int i = 0; i < MSSv.size(); i++) {
@@ -77,6 +84,4 @@ int MaxSubSum::Update() {
             start = i + 1; // new starting index for MSS
         }
     }
-
-    return maxSum;  
 }
