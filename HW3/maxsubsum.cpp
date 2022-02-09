@@ -49,6 +49,7 @@ void MaxSubSum::Insert(int index, int val) {
         // update only called if val > 0
         if (val > 0) {
             // update
+            Update();
         }
     }
 
@@ -56,8 +57,26 @@ void MaxSubSum::Insert(int index, int val) {
     else if (index > start && index < end) {
         // update only called if val < 0
         if (val < 0) {
-            // update
+            Update();
         }
     }
 
+}
+
+// Recomputes the MSS for the entire vector.
+int MaxSubSum::Update() {
+    int maxSum = 0, sum = 0;
+
+    for (int i = 0; i < MSSv.size(); i++) {
+        sum += MSSv[i];
+        if (sum > maxSum) {
+            maxSum = sum;
+            end = i; // ending index for MSS (so far)
+        }
+        else if (sum < 0) {
+            maxSum = 0;
+            start = i + 1; // new starting index for MSS
+        }
+
+    return maxSum;
 }

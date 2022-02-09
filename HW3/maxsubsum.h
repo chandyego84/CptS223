@@ -41,7 +41,7 @@ private:
         // b. Once a positive integer is found, MSS4 algorithm can begin.
         //    Main change of this phase is the maintenance and update of the start and end indices as
         //    different subsequences are considred.
-    void Update();
+    int Update();
 
     // vector of integers
     vector<int> MSSv;
