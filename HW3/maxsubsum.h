@@ -24,9 +24,9 @@ public:
     // Inserts val into the vector at the given index, shifting the original elements starting at index to the right.
     // If given index is beyond end of vector, val should be inserted at end of vector.
     // Should be maximally-efficient in terms of only calling Update method when necessary.
-        // 1. New value inserted at least oen element before current MSS. Update called only if value > 0.
+        // 1. New value inserted at least one element before current MSS. Update called only if value > 0.
         // 2. New value inserted immediately before current MSS. Update to not be called.
-        // 3. New value inserted immiediately after the current MSS. Update to not be called.
+        // 3. New value inserted immediately after the current MSS. Update to not be called.
         // 4. New value inserted at least one element after current MSS. Update called only if value > 0.
         // 5. New value inserted inside current MSS. Update should be called only if value < 0.
     void Insert(int index, int val);
