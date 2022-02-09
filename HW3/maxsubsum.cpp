@@ -60,7 +60,6 @@ void MaxSubSum::Insert(int index, int val) {
             Update();
         }
     }
-
 }
 
 // Recomputes the MSS for the entire vector.
@@ -77,6 +76,7 @@ int MaxSubSum::Update() {
             maxSum = 0;
             start = i + 1; // new starting index for MSS
         }
+    }
 
-    return maxSum;
+    return maxSum;  
 }

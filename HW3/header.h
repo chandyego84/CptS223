@@ -4,12 +4,14 @@
 
 #include <iostream>
 #include <vector>
-#include <iomanip>
+#include <fstream>
+#include <sstream>
+#include <string>
 
 using std::ostream;
 using std::cout;
 using std::endl;
-using std::setw;
-using std::setfill;
-using std::internal;
 using std::vector;
+using std::ifstream;
+using std::string;
+using std::stringstream;
