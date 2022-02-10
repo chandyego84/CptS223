@@ -2,5 +2,9 @@
 Implementing the MaxSubSum class that maintains the Maximum 
 Subsequence Sum (MSS) of an array as you insert integers into the array.
 
-# Max Subarray Algorithm Used
+## Max Subarray Algorithm Used
 ![MaxSubSum Algorithm](https://github.com/chandyego84/CptS223/blob/main/HW3/algoPic.png)
+
+## TODO:
+- [ ] Account for vector of all negative numbers 
+- [ ] Clean up insert() method (too messy)
