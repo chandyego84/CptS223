@@ -38,35 +38,69 @@ ostream& operator<<(ostream &os, const MaxSubSum &mss) {
 // Shifting the original elements starting at index to the right.
 void MaxSubSum::Insert(int index, int val) {    
     // insert the new value
-    // Update() not called:
-        // New value inserted immediately before current MSS. 
-        // New value inserted immediately after the current MSS. 
     if (index > MSSv.size()) {
-        cout << "inserting with index > size" << endl;
+        //cout << "inserting with index > size" << endl;
         MSSv.push_back(val);
     }
     else {
-        cout << "inserting with index within range" << endl;
+        //cout << "inserting with index within range" << endl;
         MSSv.insert(MSSv.begin() + index, val);
+    }
+
+    // Update() not called:
+    // New value inserted immediately before current MSS. 
+    // New value inserted immediately after the current MSS. )
+    if (index == start) {
+        // new value pushes window to right, making it immediately before the start index
+        if (val > 0) {
+            start = index;
+        }
+
+        else {
+            start = start + 1;
+        }
+        if (MSSv.size() > 1) {
+            // if vector only has one element, end index is same as start index
+            // which means no need to update end index
+            end = end + 1;
+        }
+    }
+    else if (index == end + 1) {
+        if (val > 0) {
+            end = index;
+        }
     }
 
     // New value inserted at least one element before current MSS. 
     // New value inserted at least one element after current MSS. 
-    if (index < start - 1 || index > end + 1) {
+    else if(index < start - 1 || index > end + 1) {
         // update only called if val > 0
         if (val > 0) {
-            // update
             Update();
+        }
+        if (index < start - 1) {
+            // shifting to right, shift the MSS window to the right too
+            start = start + 1;
+            end = end + 1;
         }
     }
 
     // New value inserted inside current MSS. Update should be called only if value < 0.
-    else if (index > start && index < end) {
+    else if (index > start && index <= end) {
         // update only called if val < 0
         if (val < 0) {
             Update();
         }
     }
+
+    cout << endl;
+    cout << "curr arr: ";
+    for (int i = 0; i < MSSv.size(); i++) {
+        cout << MSSv[i] << " ";
+    }
+    cout << endl;
+    cout << "start: " << start << " end: " << end << endl;
+
 }
 
 // Recomputes the MSS for the entire vector.
@@ -77,7 +111,7 @@ void MaxSubSum::Update() {
         sum += MSSv[i];
         if (sum > maxSum) {
             maxSum = sum;
-            end = i; // ending index for MSS (so far)
+            end = i; // ending index for MSS
         }
         else if (sum < 0) {
             maxSum = 0;
