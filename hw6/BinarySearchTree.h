@@ -218,23 +218,53 @@ private:
 	
 	void PreOrder( BinaryNode *t, ostream & out ) const
 	{
-		out << " TODO";
+		// out << " TODO";
+		if (t != nullptr) {
+			out << t->element << " ";
+			PreOrder(t->left, out);
+			PreOrder(t->right, out);
+		}
 	}
 
 	void PostOrder( BinaryNode *t, ostream & out ) const
 	{
-		out << " TODO";
-	}
+		//out << " TODO";
+		if (t != nullptr) {
+			PostOrder(t->left, out);
+			PostOrder(t->right, out);
+			out << t->element << " ";
+		}
+ 	}
 
 	void InOrder( BinaryNode *t, ostream & out ) const
 	{
-		out << " TODO";
+		//out << " TODO";
+		if (t != nullptr) {
+			InOrder(t->left, out);
+			out << t->element << " ";
+			InOrder(t->right, out);
+		}
 	}
 	
 	// Assumes template class of type int
 	void DepthEqual( BinaryNode *t, ostream & out, int depth = 0) const
 	{
-		out << " TODO";
+		//out << " TODO";
+		if (t == nullptr) {
+			return;
+		}
+		
+		else {
+			if (t->element > depth) {
+				DepthEqual(t->left, out, depth + 1);
+			}
+			else if (t->element <= depth) {
+				DepthEqual(t->right, out, depth + 1);
+				if (t->element == depth) {
+					out << t->element << " ";
+				}
+			}
+		}
 	}
 };
 
