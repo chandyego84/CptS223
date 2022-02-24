@@ -1,8 +1,8 @@
 // BinarySearchTree template class
-//
 // From Weiss, "Data Structures and Algorithms in C++", 4th Edition, 2014.
-//
 // Modified for CptS 223 Spring 2022 - Homework 6
+// Changes made to: 
+// Order traversals, DepthEqual method
 
 #ifndef BINARY_SEARCH_TREE_H
 #define BINARY_SEARCH_TREE_H

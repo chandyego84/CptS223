@@ -1,6 +1,7 @@
 // main.cc
-//
+// Chandler Juego
 // HW6 - CPTS 223 - Spring 2022
+// Due 2/23/2022
 
 #include <iostream>
 #include <fstream>
