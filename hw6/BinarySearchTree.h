@@ -253,6 +253,21 @@ private:
 		if (t == nullptr) {
 			return;
 		}
+
+		else {
+			if (t->element == depth) {
+				out << t->element << " ";
+			}
+			if (t->element > depth) {
+				DepthEqual(t->left, out, depth + 1);
+			}
+			DepthEqual(t->right, out, depth + 1);
+		}
+
+		/*
+		if (t == nullptr) {
+			return;
+		}
 		
 		else {
 			if (t->element > depth) {
@@ -265,6 +280,7 @@ private:
 				}
 			}
 		}
+		*/
 	}
 };
 
