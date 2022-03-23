@@ -14,7 +14,6 @@
 using namespace std;
 
 #define NMAX 1000
-#define NMAX2 10000
 
 int main(int argc, char **argv) {
     /*Creating the array A*/
@@ -49,32 +48,36 @@ int main(int argc, char **argv) {
 
     /*For each DS in {V, S, US}, calculate running time for searching for each number in A[0] -> A[NMAX-1]*/
     // FOR ARRAY
+    auto end = chrono::high_resolution_clock::now();
+    
     auto start = chrono::high_resolution_clock::now();
     for (int i = 0; i < NMAX; i++) {
-        auto found = find(V.begin(), V.end(), A[i]);
+        find(V.begin(), V.end(), A[i]);
+        end = chrono::high_resolution_clock::now();
+        chrono::duration<long double> duration = (end - start) / (long double)(i+1);
+        cout << "ARRAY" << "[" << i + 1 << "]" << duration.count() << " seconds" << endl;
     }
-    auto end = chrono::high_resolution_clock::now();
-    chrono::duration<double> duration = (end - start) / NMAX;
-    cout << "VECTOR: " << duration.count() << " seconds" << endl;
-
+    
     // FOR BALANCED BST
     start = chrono::high_resolution_clock::now();
+
     for (int i = 0; i < NMAX; i++) {
         S.find(A[i]);
+        end = chrono::high_resolution_clock::now();
+        chrono::duration<long double> duration = (end - start) / (long double)(i+1);
+        cout << "BALANCED BST: " << duration.count() << " seconds" << endl;
     }
-    end = chrono::high_resolution_clock::now();
-    duration = (end - start) / NMAX;
-    cout << "SET: " << duration.count() << " seconds" << endl;
 
     // FOR HASH TABLE
     start = chrono::high_resolution_clock::now();
+
     for (int i = 0; i < NMAX; i++) {
         US.find(A[i]);
+        end = chrono::high_resolution_clock::now();
+        chrono::duration<long double> duration = (end - start) / (long double)(i+1);
+        cout << "HASH TABLE: " << duration.count() << " seconds" << endl;
     }
-    end = chrono::high_resolution_clock::now();
-    duration = (end - start) / NMAX;
     
-    cout << "UNORDERED SET: " << duration.count() << " seconds" << endl;
-
     return 0;
 }
+
