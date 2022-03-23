@@ -15,6 +15,16 @@ using namespace std;
 
 #define NMAX 1000
 
+// write to csv fxn
+void writeCSV(vector<long double> &V, vector<long double> &S, vector<long double> &US) {
+    ofstream outfile("runtimes.csv");
+
+    outfile << "N,ARRAYavg,BSTavg,HASHavg" << endl;
+    for (int i =0; i < NMAX; i++) {
+        outfile << i + 1 << "," << V[i] << "," << S[i] << "," << US[i] << endl;
+    }
+}
+
 int main(int argc, char **argv) {
     /*Creating the array A*/
     int A[NMAX];
@@ -87,19 +97,7 @@ int main(int argc, char **argv) {
     US.clear();
 
     /*Writing data to csv file*/
-    
+    writeCSV(V_times, S_times, US_times);
 
     return 0;
 }
-
-/*
-// write to csv fxn
-void writeCSV(vector<long double> &V, set<long double> &S, unordered_set<long double> &US) {
-    fstream outfile("runtimes.csv");
-
-    outfile << "N,ARRAYavg,BSTavg,HASHavg" << endl;
-    for (int i = 0; i < NMAX; i++) {
-        outfile << V[i] << "," << S.find(V[i]) << "," << US.find(V[i]) << endl;
-    }
-}
-*/
