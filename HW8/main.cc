@@ -18,6 +18,14 @@ using namespace std;
 int main(int argc, char **argv) {
     /*Creating the array A*/
     int A[NMAX];
+    /*Instantiating each STL DS*/
+    vector<int> V;
+    set<int> S;
+    unordered_set<int> US;
+    /*For storing the runtimes of each DS for each N*/
+    vector<long double> V_times;
+    vector<long double> S_times;
+    vector<long double> US_times;
 
     // init random seed
     srand (time(NULL));
@@ -34,11 +42,6 @@ int main(int argc, char **argv) {
         A[j] = temp;
     }
 
-    /*Instantiating each STL DS*/
-    vector<int> V;
-    set<int> S;
-    unordered_set<int> US;
-
     /*Inserting numbers from A, A[0] -> A[NMAX-1] into each STL DS*/
     for (int i = 0; i < NMAX; i++) {
         V.push_back(A[i]);
@@ -49,13 +52,13 @@ int main(int argc, char **argv) {
     /*For each DS in {V, S, US}, calculate running time for searching for each number in A[0] -> A[NMAX-1]*/
     // FOR ARRAY
     auto end = chrono::high_resolution_clock::now();
-    
+
     auto start = chrono::high_resolution_clock::now();
     for (int i = 0; i < NMAX; i++) {
         find(V.begin(), V.end(), A[i]);
         end = chrono::high_resolution_clock::now();
         chrono::duration<long double> duration = (end - start) / (long double)(i+1);
-        cout << "ARRAY" << "[" << i + 1 << "]" << duration.count() << " seconds" << endl;
+        V_times.push_back(duration.count());
     }
     
     // FOR BALANCED BST
@@ -65,7 +68,7 @@ int main(int argc, char **argv) {
         S.find(A[i]);
         end = chrono::high_resolution_clock::now();
         chrono::duration<long double> duration = (end - start) / (long double)(i+1);
-        cout << "BALANCED BST: " << duration.count() << " seconds" << endl;
+        S_times.push_back(duration.count());
     }
 
     // FOR HASH TABLE
@@ -75,9 +78,28 @@ int main(int argc, char **argv) {
         US.find(A[i]);
         end = chrono::high_resolution_clock::now();
         chrono::duration<long double> duration = (end - start) / (long double)(i+1);
-        cout << "HASH TABLE: " << duration.count() << " seconds" << endl;
+        US_times.push_back(duration.count());
     }
     
+    /*Remove instances of V, S, and US*/
+    V.clear();
+    S.clear();
+    US.clear();
+
+    /*Writing data to csv file*/
+    
+
     return 0;
 }
 
+/*
+// write to csv fxn
+void writeCSV(vector<long double> &V, set<long double> &S, unordered_set<long double> &US) {
+    fstream outfile("runtimes.csv");
+
+    outfile << "N,ARRAYavg,BSTavg,HASHavg" << endl;
+    for (int i = 0; i < NMAX; i++) {
+        outfile << V[i] << "," << S.find(V[i]) << "," << US.find(V[i]) << endl;
+    }
+}
+*/
