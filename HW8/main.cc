@@ -54,8 +54,8 @@ int main(int argc, char **argv) {
         auto found = find(V.begin(), V.end(), A[i]);
     }
     auto end = chrono::high_resolution_clock::now();
-    auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-    cout << "VECTOR: " << duration.count() << " microseconds" << endl;
+    chrono::duration<double> duration = (end - start) / NMAX;
+    cout << "VECTOR: " << duration.count() << " seconds" << endl;
 
     // FOR BALANCED BST
     start = chrono::high_resolution_clock::now();
@@ -63,8 +63,8 @@ int main(int argc, char **argv) {
         S.find(A[i]);
     }
     end = chrono::high_resolution_clock::now();
-    duration = chrono::duration_cast<chrono::microseconds>(end - start);    
-    cout << "SET: " << duration.count() << " microseconds" << endl;
+    duration = (end - start) / NMAX;
+    cout << "SET: " << duration.count() << " seconds" << endl;
 
     // FOR HASH TABLE
     start = chrono::high_resolution_clock::now();
@@ -72,8 +72,9 @@ int main(int argc, char **argv) {
         US.find(A[i]);
     }
     end = chrono::high_resolution_clock::now();
-    duration = chrono::duration_cast<chrono::microseconds>(end - start);    
-    cout << "UNORDERED SET: " << duration.count() << " microseconds" << endl;
+    duration = (end - start) / NMAX;
+    
+    cout << "UNORDERED SET: " << duration.count() << " seconds" << endl;
 
     return 0;
 }
