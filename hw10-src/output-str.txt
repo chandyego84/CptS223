@@ -1,0 +1,189 @@
+insert Advanced:
+
+Advanced (0) -> NULL
+
+insert Data:
+
+Data (0) -> NULL
+Advanced (0) -> NULL
+
+insert Structures:
+
+Structures (0) -> NULL
+Data (0) -> NULL
+Advanced (0) -> NULL
+
+insert CPlusPlus:
+
+CPlusPlus (0) -> NULL
+Structures (0) -> NULL
+Data (0) -> NULL
+Advanced (0) -> NULL
+
+insert Super:
+
+CPlusPlus (0) -> NULL
+Structures (0) -> NULL
+Super (0) -> NULL
+Data (0) -> NULL
+Advanced (0) -> NULL
+
+insert Stuff:
+
+Stuff (0) -> NULL
+CPlusPlus (0) -> NULL
+Structures (0) -> NULL
+Super (0) -> NULL
+Data (0) -> NULL
+Advanced (0) -> NULL
+
+insert Things:
+
+Things (0) -> NULL
+Stuff (0) -> NULL
+CPlusPlus (0) -> NULL
+Structures (0) -> NULL
+Super (0) -> NULL
+Data (0) -> NULL
+Advanced (0) -> NULL
+
+insert Items:
+
+Items (0) -> NULL
+Things (0) -> NULL
+Stuff (0) -> NULL
+CPlusPlus (0) -> NULL
+Structures (0) -> NULL
+Super (0) -> NULL
+Data (0) -> NULL
+Advanced (0) -> NULL
+
+insert CPP:
+
+CPP (0) -> NULL
+Items (0) -> NULL
+Things (0) -> NULL
+Stuff (0) -> NULL
+CPlusPlus (0) -> NULL
+Structures (0) -> NULL
+Super (0) -> NULL
+Data (0) -> NULL
+Advanced (0) -> NULL
+
+insert CC:
+
+CPP (0) -> NULL
+Items (0) -> NULL
+Things (0) -> NULL
+CC (0) -> NULL
+Stuff (0) -> NULL
+CPlusPlus (0) -> NULL
+Structures (0) -> NULL
+Super (0) -> NULL
+Data (0) -> NULL
+Advanced (0) -> NULL
+
+union Advanced Super:
+
+CPP (0) -> NULL
+Items (0) -> NULL
+Things (0) -> NULL
+CC (0) -> NULL
+Stuff (0) -> NULL
+CPlusPlus (0) -> NULL
+Structures (0) -> NULL
+Super (0) -> Advanced
+Data (0) -> NULL
+Advanced (1) -> NULL
+
+union Data Stuff:
+
+CPP (0) -> NULL
+Items (0) -> NULL
+Things (0) -> NULL
+CC (0) -> NULL
+Stuff (0) -> Data
+CPlusPlus (0) -> NULL
+Structures (0) -> NULL
+Super (0) -> Advanced
+Data (1) -> NULL
+Advanced (1) -> NULL
+
+union Stuff Things:
+
+CPP (0) -> NULL
+Items (0) -> NULL
+Things (0) -> Data
+CC (0) -> NULL
+Stuff (0) -> Data
+CPlusPlus (0) -> NULL
+Structures (0) -> NULL
+Super (0) -> Advanced
+Data (1) -> NULL
+Advanced (1) -> NULL
+
+union Items Stuff:
+
+CPP (0) -> NULL
+Items (0) -> Data
+Things (0) -> Data
+CC (0) -> NULL
+Stuff (0) -> Data
+CPlusPlus (0) -> NULL
+Structures (0) -> NULL
+Super (0) -> Advanced
+Data (1) -> NULL
+Advanced (1) -> NULL
+
+union CPP CPlusPlus:
+
+CPP (1) -> NULL
+Items (0) -> Data
+Things (0) -> Data
+CC (0) -> NULL
+Stuff (0) -> Data
+CPlusPlus (0) -> CPP
+Structures (0) -> NULL
+Super (0) -> Advanced
+Data (1) -> NULL
+Advanced (1) -> NULL
+
+union CC CPlusPlus:
+
+CPP (1) -> NULL
+Items (0) -> Data
+Things (0) -> Data
+CC (0) -> CPP
+Stuff (0) -> Data
+CPlusPlus (0) -> CPP
+Structures (0) -> NULL
+Super (0) -> Advanced
+Data (1) -> NULL
+Advanced (1) -> NULL
+
+find Data: Data
+
+CPP (1) -> NULL
+Items (0) -> Data
+Things (0) -> Data
+CC (0) -> CPP
+Stuff (0) -> Data
+CPlusPlus (0) -> CPP
+Structures (0) -> NULL
+Super (0) -> Advanced
+Data (1) -> NULL
+Advanced (1) -> NULL
+
+find Stuff: Data
+
+CPP (1) -> NULL
+Items (0) -> Data
+Things (0) -> Data
+CC (0) -> CPP
+Stuff (0) -> Data
+CPlusPlus (0) -> CPP
+Structures (0) -> NULL
+Super (0) -> Advanced
+Data (1) -> NULL
+Advanced (1) -> NULL
+
